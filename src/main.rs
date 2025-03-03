@@ -1,7 +1,19 @@
 use actix_web::{App, HttpResponse, HttpServer, Responder, web};
 use dotenvy::dotenv;
+use serde::{Deserialize, Serialize};
 use sqlx::{Pool, Postgres};
 use std::env;
+
+async fn health_check() -> impl Responder {
+    HttpResponse::Ok().body("User service is running")
+}
+
+#[derive(Serialize, Deserialize)]
+struct User {
+    username: String,
+    email: String,
+    password: String,
+}
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
