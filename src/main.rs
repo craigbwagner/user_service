@@ -4,10 +4,6 @@ use serde::{Deserialize, Serialize};
 use sqlx::{Pool, Postgres};
 use std::env;
 
-async fn health_check() -> impl Responder {
-    HttpResponse::Ok().body("User service is running")
-}
-
 #[derive(Serialize, Deserialize)]
 struct User {
     username: String,
