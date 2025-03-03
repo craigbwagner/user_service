@@ -9,3 +9,4 @@ serde = { workspace = true }
 tokio = { workspace = true }
 sqlx = { workspace = true }
 jsonwebtoken = { workspace = true }
+dotenvy = { workspace = true }
